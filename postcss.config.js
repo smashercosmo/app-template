@@ -28,7 +28,6 @@ const mediaBreakPoints = fromEntries(
 )
 
 module.exports = ({ options }) => {
-  console.log('postcss optimize: ', options.optimize)
   return {
     plugins: {
       cssnano: options.optimize ? { preset: 'default' } : false,
