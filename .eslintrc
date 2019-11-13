@@ -1,0 +1,62 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": [
+    "prettier",
+    "eslint-plugin-import-helpers"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    // Prettier
+    "prettier/prettier": ["error"],
+
+    // React specific rules
+    "react/jsx-filename-extension": "off",
+    "react/jsx-props-no-spreading": "off",
+
+    // Import rules
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
+    "import-helpers/order-imports": [
+      "error", {
+        "newlinesBetween": "always",
+        "groups": [
+          ["module"],
+          ["parent", "sibling", "index"],
+
+          // hooks
+          "/[/]use[A-Z][a-zA-Z]+$/",
+
+          // images
+          "/[.](svg|png|jpg|jpeg)$/",
+
+          // styles
+          "/[.]css$/"
+        ]
+      }
+    ],
+
+    // General rules
+    "func-style": ["error", "declaration"],
+
+    // Typescript
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/ban-ts-ignore": "off"
+  },
+  "globals": {
+    "document": true,
+    "window": true
+  }
+}
